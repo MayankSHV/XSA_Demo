@@ -18,6 +18,7 @@ select count(*) into noc
 
 if :noc = 0 then
   ex_error := 'ERROR: Continent ' || :im_continent || ' does not exist!';
+  insert into "tinyworld.tinydb::tinyf.world" values (im_continent);
 else
   select count(*) into noc
      from "tinyworld.tinydb::tinyf.country"

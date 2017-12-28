@@ -16,25 +16,28 @@ function saveCountry(country) {
 	conn.close();
 
 	if (result && result.EX_ERROR !== null) {
-		return result.EX_ERROR;
+		return {body : result, status: $.net.http.BAD_REQUEST};
 	} else {
-		return output;
+		return {body : output, status: $.net.http.CREATED};
 	}
 
 }
 
-var country = {
 
-	name: $.request.parameters.get("name"),
-
-	partof: $.request.parameters.get("continent")
-
-};
 
 // validate the inputs here!
+var country = {
 
+  name: $.request.parameters.get("name"),
+
+  partof: $.request.parameters.get("continent")
+
+};
 var output = saveCountry(country);
 
 $.response.contentType = "application/json";
+$.response.setBody(output.body);
+
+$.response.status = output.status;
 
 $.response.setBody(output);
