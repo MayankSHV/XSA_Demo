@@ -18,7 +18,10 @@ select count(*) into noc
 
 if :noc = 0 then
   ex_error := 'ERROR: Continent ' || :im_continent || ' does not exist!';
+<<<<<<< HEAD
   insert into "tinyworld.tinydb::tinyf.world" values (im_continent);
+=======
+>>>>>>> refs/remotes/origin/master
 else
   select count(*) into noc
      from "tinyworld.tinydb::tinyf.country"

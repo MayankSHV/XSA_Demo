@@ -5,7 +5,11 @@ context tinyf {
         key continent : String(100);
     };
 
+<<<<<<< HEAD
     /*@@layout{"layoutInfo":{}}*/
+=======
+    /*@@layout{"layoutInfo":{"x":-371,"y":-63.5}}*/
+>>>>>>> refs/remotes/origin/master
     entity country {
         name   : String(100);
         partof : association[0..1] to world;
